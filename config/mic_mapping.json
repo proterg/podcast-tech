@@ -1,0 +1,15 @@
+{
+  "channels": [
+    {"channel": 0, "person": "Jay (Host)", "camera": "Camera 1", "priority": 1},
+    {"channel": 1, "person": "Co-host", "camera": "Camera 2", "priority": 2},
+    {"channel": 2, "person": "Contributor A1", "camera": "Camera 3", "priority": 3},
+    {"channel": 3, "person": "Contributor A2", "camera": "Camera 3", "priority": 3},
+    {"channel": 4, "person": "Contributor B1", "camera": "Camera 4", "priority": 4},
+    {"channel": 5, "person": "Contributor B2", "camera": "Camera 4", "priority": 4},
+    {"channel": 6, "person": "Producer", "camera": null, "priority": 99}
+  ],
+  "audio_device": "Scarlett 18i20 USB",
+  "sample_rate": 48000,
+  "block_size": 1024,
+  "num_channels": 8
+}

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNCAPPED Production Control</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <!-- Header Bar -->
+    <header id="header">
+        <div class="header-left">
+            <h1>UNCAPPED</h1>
+        </div>
+        <div class="header-center">
+            <span id="obs-status" class="status-indicator disconnected">
+                <span class="dot"></span> OBS Disconnected
+            </span>
+        </div>
+        <div class="header-right">
+            <span id="live-indicator" class="status-indicator">
+                <span class="dot live-dot"></span> <span id="stream-timer">00:00:00</span>
+            </span>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Left: Scene Buttons -->
+        <section id="scene-panel" class="panel">
+            <h2>Scenes</h2>
+            <div id="scene-buttons" class="scene-grid">
+                <!-- Populated by JS -->
+            </div>
+            <div class="scene-divider"></div>
+            <h3>Quick Layouts</h3>
+            <div id="template-buttons" class="scene-grid">
+                <!-- Populated by JS -->
+            </div>
+        </section>
+
+        <!-- Center: Preview -->
+        <section id="preview-panel" class="panel">
+            <h2>Program</h2>
+            <div id="preview-container">
+                <div id="current-scene-label">No Scene</div>
+            </div>
+        </section>
+
+        <!-- Right: Audio & Controls -->
+        <section id="right-panel" class="panel">
+            <h2>Audio Meters</h2>
+            <div id="audio-meters">
+                <!-- Populated by JS -->
+            </div>
+
+            <div class="panel-divider"></div>
+
+            <h2>Auto-Switch</h2>
+            <div id="auto-switch-controls">
+                <div class="toggle-row">
+                    <button id="auto-switch-on" class="toggle-btn">ON</button>
+                    <button id="auto-switch-off" class="toggle-btn active">OFF</button>
+                </div>
+                <div class="slider-row">
+                    <label>Threshold</label>
+                    <input type="range" id="threshold-slider" min="-60" max="-20" value="-40" step="1">
+                    <span id="threshold-value">-40 dB</span>
+                </div>
+                <div class="slider-row">
+                    <label>Debounce</label>
+                    <input type="range" id="debounce-slider" min="200" max="2000" value="800" step="100">
+                    <span id="debounce-value">800 ms</span>
+                </div>
+                <div class="slider-row">
+                    <label>Cooldown</label>
+                    <input type="range" id="cooldown-slider" min="500" max="5000" value="2000" step="100">
+                    <span id="cooldown-value">2000 ms</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Bottom Tabs -->
+    <section id="bottom-panel">
+        <div id="tab-bar">
+            <button class="tab-btn active" data-tab="assets">Assets</button>
+            <button class="tab-btn" data-tab="lower-thirds">Lower Thirds</button>
+            <button class="tab-btn" data-tab="voice">Voice</button>
+            <button class="tab-btn" data-tab="scene-builder">Scene Builder</button>
+        </div>
+
+        <div id="tab-content">
+            <!-- Assets Tab -->
+            <div id="tab-assets" class="tab-pane active">
+                <div class="asset-toolbar">
+                    <select id="asset-category">
+                        <option value="">All Categories</option>
+                    </select>
+                    <button id="refresh-assets" class="btn">Refresh</button>
+                </div>
+                <div id="asset-grid" class="asset-grid">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+
+            <!-- Lower Thirds Tab -->
+            <div id="tab-lower-thirds" class="tab-pane">
+                <div class="lt-form">
+                    <input type="text" id="lt-name" placeholder="Name" class="input">
+                    <input type="text" id="lt-title" placeholder="Title" class="input">
+                    <button id="lt-show" class="btn btn-primary">Show</button>
+                    <button id="lt-hide" class="btn">Hide</button>
+                </div>
+                <div id="lt-presets" class="lt-presets">
+                    <!-- Quick presets from mic mapping -->
+                </div>
+            </div>
+
+            <!-- Voice Tab -->
+            <div id="tab-voice" class="tab-pane">
+                <div class="voice-controls">
+                    <div class="toggle-row">
+                        <span>Voice Recognition:</span>
+                        <button id="voice-on" class="toggle-btn">ON</button>
+                        <button id="voice-off" class="toggle-btn active">OFF</button>
+                    </div>
+                    <div id="voice-status-display">
+                        <span id="voice-listening-indicator" class="status-indicator">
+                            <span class="dot"></span> Not Listening
+                        </span>
+                    </div>
+                    <div id="voice-last-command">
+                        Last command: <span id="voice-last-text">--</span>
+                    </div>
+                </div>
+                <div id="voice-command-list">
+                    <h3>Available Commands</h3>
+                    <ul>
+                        <li><strong>"Cut to camera [1-4]"</strong> - Switch to camera</li>
+                        <li><strong>"Show gallery"</strong> - Show all cameras</li>
+                        <li><strong>"Play intro/outro"</strong> - Play media</li>
+                        <li><strong>"Lower third"</strong> - Toggle name overlay</li>
+                        <li><strong>"Auto switch on/off"</strong> - Toggle auto-switch</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Scene Builder Tab -->
+            <div id="tab-scene-builder" class="tab-pane">
+                <div id="scene-builder-templates">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Voice Footer -->
+    <footer id="footer">
+        <div id="voice-footer">
+            <span id="voice-indicator" class="status-indicator">
+                <span class="dot"></span> Voice: Off
+            </span>
+            <span id="voice-footer-last">Last: --</span>
+        </div>
+        <div id="keyboard-hints">
+            <kbd>1</kbd>-<kbd>4</kbd> Cameras &nbsp;
+            <kbd>G</kbd> Gallery &nbsp;
+            <kbd>A</kbd> Auto-Switch &nbsp;
+            <kbd>V</kbd> Voice
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/js/api.js"></script>
+    <script src="/js/components/scene-switcher.js"></script>
+    <script src="/js/components/audio-meters.js"></script>
+    <script src="/js/components/auto-switch-controls.js"></script>
+    <script src="/js/components/asset-browser.js"></script>
+    <script src="/js/components/lower-thirds.js"></script>
+    <script src="/js/components/voice-status.js"></script>
+    <script src="/js/components/scene-builder-ui.js"></script>
+    <script src="/js/app.js"></script>
+</body>
+</html>

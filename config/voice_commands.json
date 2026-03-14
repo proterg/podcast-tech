@@ -1,0 +1,17 @@
+{
+  "commands": [
+    {"phrases": ["cut to camera one", "camera one", "go one"], "action": "switch_scene", "params": {"scene": "Camera 1"}},
+    {"phrases": ["cut to camera two", "camera two", "go two"], "action": "switch_scene", "params": {"scene": "Camera 2"}},
+    {"phrases": ["cut to camera three", "camera three", "go three"], "action": "switch_scene", "params": {"scene": "Camera 3"}},
+    {"phrases": ["cut to camera four", "camera four", "go four"], "action": "switch_scene", "params": {"scene": "Camera 4"}},
+    {"phrases": ["show gallery", "gallery view", "all cameras"], "action": "switch_scene", "params": {"scene": "Gallery"}},
+    {"phrases": ["play intro", "run intro", "intro"], "action": "play_asset", "params": {"type": "intro"}},
+    {"phrases": ["play outro", "run outro", "outro"], "action": "play_asset", "params": {"type": "outro"}},
+    {"phrases": ["lower third", "show name", "name plate"], "action": "lower_third", "params": {}},
+    {"phrases": ["auto switch on", "enable auto", "auto on"], "action": "auto_switch", "params": {"enabled": true}},
+    {"phrases": ["auto switch off", "disable auto", "auto off"], "action": "auto_switch", "params": {"enabled": false}}
+  ],
+  "match_threshold": 0.70,
+  "cooldown_seconds": 2.0,
+  "producer_channel": 6
+}

@@ -78,7 +78,74 @@ header h1 {
     50% { opacity: 0.3; }
 }
 
+/* === Global Navigation === */
+#global-nav {
+    display: inline-flex;
+    gap: 2px;
+    margin-left: 20px;
+    background: var(--bg-primary);
+    border-radius: var(--radius);
+    padding: 2px;
+}
+
+.global-nav-btn {
+    padding: 5px 16px;
+    background: none;
+    border: none;
+    border-radius: 4px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all var(--transition);
+}
+
+.global-nav-btn:hover { color: var(--text-primary); }
+.global-nav-btn.active { background: var(--accent); color: #fff; }
+
+/* === Global Views === */
+.global-view {
+    display: none;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+}
+
+.global-view.active {
+    display: flex;
+}
+
+/* === Pre-Production View === */
+.preproduction-container {
+    flex: 1;
+    padding: 20px 32px;
+    overflow-y: auto;
+}
+
+.preproduction-container h2 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.ros-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.ros-header-actions {
+    display: flex;
+    gap: 8px;
+}
+
 /* === Main Layout === */
+#view-live {
+    overflow: hidden;
+}
+
 #main-content {
     display: grid;
     grid-template-columns: 200px 1fr 240px;
@@ -612,6 +679,244 @@ kbd {
     background: var(--red) !important;
     color: #fff !important;
 }
+
+/* === Run of Show === */
+.preproduction-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.ros-segment-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.ros-segment {
+    display: flex;
+    align-items: stretch;
+    gap: 12px;
+    padding: 16px;
+    background: var(--bg-panel);
+    border-left: 4px solid var(--accent);
+    border-radius: 8px;
+    min-height: 150px;
+    transition: border-color var(--transition), opacity var(--transition), box-shadow var(--transition);
+}
+
+/* Distinct colors per segment type */
+.ros-segment[data-label="intro"]  { border-left-color: var(--blue); }
+.ros-segment[data-label="outro"]  { border-left-color: #9c27b0; }
+.ros-segment[data-label="a"]      { border-left-color: var(--accent); }
+.ros-segment[data-label="b"]      { border-left-color: var(--green); }
+.ros-segment[data-label="c"]      { border-left-color: var(--yellow); }
+.ros-segment[data-label="d"]      { border-left-color: #e91e63; }
+.ros-segment[data-label="e"]      { border-left-color: #00bcd4; }
+.ros-segment[data-label="f"]      { border-left-color: #8bc34a; }
+.ros-segment[data-label="g"]      { border-left-color: #ff9800; }
+.ros-segment[data-label="h"]      { border-left-color: #607d8b; }
+
+.ros-segment.ros-dragging {
+    opacity: 0.4;
+}
+
+.ros-segment.ros-drag-over {
+    border-left-color: var(--accent) !important;
+    box-shadow: 0 0 16px rgba(255, 107, 53, 0.25);
+}
+
+.ros-drag-handle {
+    cursor: grab;
+    color: var(--text-secondary);
+    font-size: 14px;
+    padding: 6px 2px;
+    user-select: none;
+    flex-shrink: 0;
+    align-self: flex-start;
+}
+
+.ros-drag-handle:hover { color: var(--text-primary); }
+.ros-drag-handle:active { cursor: grabbing; }
+
+.ros-label {
+    min-width: 70px;
+    padding: 10px 12px;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border-radius: var(--radius);
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+    flex-shrink: 0;
+    align-self: flex-start;
+}
+
+.ros-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 0;
+}
+
+.ros-fields {
+    display: flex;
+    gap: 10px;
+    align-items: stretch;
+}
+
+.ros-fields .ros-title {
+    flex: 1;
+    font-size: 13px;
+    padding: 8px 12px;
+}
+
+.ros-fields .ros-notes {
+    flex: 1;
+    font-size: 13px;
+    padding: 8px 12px;
+    resize: vertical;
+    min-height: 60px;
+    max-height: 200px;
+}
+
+.ros-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex-shrink: 0;
+    align-self: flex-start;
+}
+
+.ros-btn-sm {
+    padding: 2px 6px !important;
+    font-size: 10px !important;
+    min-width: 22px;
+    line-height: 1;
+}
+
+.ros-btn-sm:disabled {
+    opacity: 0.3;
+    cursor: default;
+}
+
+.ros-btn-del {
+    color: var(--red) !important;
+}
+
+.ros-btn-del:hover {
+    background: var(--red) !important;
+    color: #fff !important;
+    border-color: var(--red) !important;
+}
+
+.ros-empty {
+    color: var(--text-secondary);
+    font-size: 13px;
+    padding: 32px;
+    text-align: center;
+}
+
+/* --- Asset drop zone --- */
+.ros-asset-drop {
+    flex: 1;
+    min-height: 50px;
+    padding: 10px;
+    background: var(--bg-primary);
+    border: 2px dashed var(--border);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: border-color var(--transition), background var(--transition);
+}
+
+.ros-asset-drop:hover {
+    border-color: var(--text-secondary);
+}
+
+.ros-asset-drop.ros-drop-active {
+    border-color: var(--accent);
+    background: rgba(255, 107, 53, 0.05);
+}
+
+.ros-drop-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 8px;
+    min-height: 40px;
+}
+
+.ros-drop-icon {
+    font-size: 22px;
+    color: var(--text-secondary);
+    font-weight: 300;
+    line-height: 1;
+}
+
+.ros-drop-text {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.ros-drop-subtext {
+    font-size: 11px;
+    color: var(--text-secondary);
+    opacity: 0.6;
+}
+
+.ros-asset-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 6px;
+}
+
+.ros-drop-hint {
+    font-size: 10px;
+    color: var(--text-secondary);
+    opacity: 0.5;
+    margin-top: 4px;
+}
+
+.ros-asset-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 10px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-size: 11px;
+    color: var(--text-primary);
+    cursor: default;
+    transition: border-color var(--transition);
+}
+
+.ros-asset-chip:hover { border-color: var(--accent); }
+
+.ros-asset-icon { font-size: 13px; }
+
+.ros-asset-name {
+    max-width: 140px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.ros-asset-remove {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1;
+    padding: 0 2px;
+}
+
+.ros-asset-remove:hover { color: var(--red); }
 
 /* === Scrollbar === */
 ::-webkit-scrollbar { width: 6px; }

@@ -18,6 +18,7 @@ const App = {
 
     init() {
         this.connectWebSocket();
+        this.initGlobalNav();
         this.initTabs();
         this.initKeyboardShortcuts();
 
@@ -30,9 +31,21 @@ const App = {
         VoiceStatus.init();
         SceneBuilderUI.init();
         CallInPanel.init();
+        RunOfShowPanel.init();
 
         // Initial data fetch
         this.fetchInitialState();
+    },
+
+    initGlobalNav() {
+        document.querySelectorAll('.global-nav-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.global-nav-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.global-view').forEach(v => v.classList.remove('active'));
+                btn.classList.add('active');
+                document.getElementById('view-' + btn.dataset.mode).classList.add('active');
+            });
+        });
     },
 
     async fetchInitialState() {

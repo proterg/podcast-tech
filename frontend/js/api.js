@@ -60,6 +60,19 @@ const API = {
     deactivateCallIn: (slotId) => API.post('/api/callin/deactivate', { slot_id: slotId }),
     clearCallIn: (slotId)  => API.post('/api/callin/clear', { slot_id: slotId }),
 
+    // Run of Show
+    getRunOfShow: ()           => API.get('/api/runofshow'),
+    saveRunOfShow: (segments)  => API.post('/api/runofshow', { segments }),
+    addSegment: (label, title, notes) => API.post('/api/runofshow/segment', { label, title: title || '', notes: notes || '' }),
+    deleteSegment: (segmentId) => API.del(`/api/runofshow/segment/${segmentId}`),
+    uploadSegmentAsset: async (segmentId, file) => {
+        const form = new FormData();
+        form.append('file', file);
+        const resp = await fetch(`/api/runofshow/upload/${segmentId}`, { method: 'POST', body: form });
+        if (!resp.ok) throw new Error(`Upload failed: ${resp.status}`);
+        return resp.json();
+    },
+
     // Status
     getStatus: ()          => API.get('/api/status'),
 };

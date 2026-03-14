@@ -1,0 +1,39 @@
+{
+  "segments": [
+    {
+      "id": "intro",
+      "label": "Intro",
+      "title": "",
+      "notes": "",
+      "assets": []
+    },
+    {
+      "id": "a",
+      "label": "A",
+      "title": "",
+      "notes": "",
+      "assets": []
+    },
+    {
+      "id": "b",
+      "label": "B",
+      "title": "",
+      "notes": "",
+      "assets": []
+    },
+    {
+      "id": "outro",
+      "label": "Outro",
+      "title": "",
+      "notes": "",
+      "assets": []
+    },
+    {
+      "id": "48712b0e",
+      "label": "C",
+      "title": "",
+      "notes": "",
+      "assets": []
+    }
+  ]
+}

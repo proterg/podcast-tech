@@ -13,7 +13,7 @@ MODELS_DIR = BASE_DIR / "models"
 class OBSConfig(BaseModel):
     host: str = "localhost"
     port: int = 4455
-    password: str = ""
+    password: str = "l9rx5H0iotRtX8hD"
 
 
 class AudioConfig(BaseModel):
@@ -70,6 +70,20 @@ def load_scene_templates() -> dict:
     path = CONFIG_DIR / "scene_templates.json"
     with open(path) as f:
         return json.load(f)
+
+
+def load_runofshow() -> dict:
+    path = CONFIG_DIR / "runofshow.json"
+    if not path.exists():
+        return {"segments": []}
+    with open(path) as f:
+        return json.load(f)
+
+
+def save_runofshow(data: dict):
+    path = CONFIG_DIR / "runofshow.json"
+    with open(path, "w") as f:
+        json.dump(data, f, indent=2)
 
 
 config = AppConfig()

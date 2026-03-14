@@ -29,6 +29,7 @@ const App = {
         LowerThirds.init();
         VoiceStatus.init();
         SceneBuilderUI.init();
+        CallInPanel.init();
 
         // Initial data fetch
         this.fetchInitialState();

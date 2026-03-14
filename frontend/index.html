@@ -87,6 +87,7 @@
             <button class="tab-btn active" data-tab="assets">Assets</button>
             <button class="tab-btn" data-tab="lower-thirds">Lower Thirds</button>
             <button class="tab-btn" data-tab="voice">Voice</button>
+            <button class="tab-btn" data-tab="callin">Call-In</button>
             <button class="tab-btn" data-tab="scene-builder">Scene Builder</button>
         </div>
 
@@ -146,6 +147,30 @@
                 </div>
             </div>
 
+            <!-- Call-In Tab -->
+            <div id="tab-callin" class="tab-pane">
+                <div class="callin-container">
+                    <div class="callin-slot-wrapper">
+                        <h3>Slot 1</h3>
+                        <div id="callin-slot-1" class="callin-slot">
+                            <div class="callin-empty">
+                                <input type="text" id="callin-name-1" placeholder="Guest name" class="input callin-name-input">
+                                <button id="callin-create-1" class="btn btn-primary callin-create-btn">Create Invite</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="callin-slot-wrapper">
+                        <h3>Slot 2</h3>
+                        <div id="callin-slot-2" class="callin-slot">
+                            <div class="callin-empty">
+                                <input type="text" id="callin-name-2" placeholder="Guest name" class="input callin-name-input">
+                                <button id="callin-create-2" class="btn btn-primary callin-create-btn">Create Invite</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Scene Builder Tab -->
             <div id="tab-scene-builder" class="tab-pane">
                 <div id="scene-builder-templates">
@@ -179,6 +204,7 @@
     <script src="/js/components/asset-browser.js"></script>
     <script src="/js/components/lower-thirds.js"></script>
     <script src="/js/components/voice-status.js"></script>
+    <script src="/js/components/callin-panel.js"></script>
     <script src="/js/components/scene-builder-ui.js"></script>
     <script src="/js/app.js"></script>
 </body>

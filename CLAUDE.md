@@ -34,6 +34,7 @@ python run.py
 - `app/obs/` -- OBS WebSocket connection, scene switching, source management, scene builder
 - `app/audio/` -- WASAPI audio capture, per-channel RMS levels, auto-switch algorithm
 - `app/voice/` -- Vosk speech recognition, fuzzy command matching, command routing
+- `app/callin/` -- VDO.Ninja call-in management (invite links, OBS browser sources)
 - `app/assets/` -- File browser for media assets, OBS source loader
 - `app/api/` -- FastAPI routes (scenes, switching, assets, voice, status, WebSocket)
 - `frontend/` -- Single-page dashboard (vanilla HTML/CSS/JS, no framework, no build step)
@@ -59,6 +60,13 @@ python run.py
 - Existing scenes: Camera 1-4 (from OBS scene collection)
 - Source names: Cam 1 (Cam Link 4K USB), Cam 2-4 (DeckLink Duo SDI)
 - App creates additional scenes dynamically (Gallery, Split, PiP)
+
+### Call-In (Remote Guests)
+- Up to 2 simultaneous call-in slots via VDO.Ninja (peer-to-peer WebRTC)
+- No server or account needed -- guests open a browser link to send webcam/mic
+- Each slot creates an OBS Browser Source (`Call-In 1`, `Call-In 2`)
+- Scene templates include split/gallery layouts with call-in sources
+- Use cases: remote guests, on-field reporters
 
 ### Voice Commands
 - Vosk offline model on producer mic channel (ch 6)

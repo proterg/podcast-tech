@@ -535,6 +535,84 @@ kbd {
     font-size: 11px;
 }
 
+/* === Call-In === */
+.callin-container {
+    display: flex;
+    gap: 24px;
+}
+
+.callin-slot-wrapper {
+    flex: 1;
+    min-width: 0;
+}
+
+.callin-slot-wrapper h3 {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.callin-slot {
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 10px;
+}
+
+.callin-empty {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.callin-name-input {
+    flex: 1;
+    min-width: 0;
+}
+
+.callin-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.callin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.callin-link-row {
+    display: flex;
+    gap: 6px;
+}
+
+.callin-link {
+    flex: 1;
+    min-width: 0;
+    font-size: 11px;
+    font-family: monospace;
+    color: var(--text-secondary);
+}
+
+.callin-actions {
+    display: flex;
+    gap: 6px;
+}
+
+.callin-clear-btn {
+    margin-left: auto;
+    color: var(--red) !important;
+    border-color: var(--red) !important;
+}
+
+.callin-clear-btn:hover {
+    background: var(--red) !important;
+    color: #fff !important;
+}
+
 /* === Scrollbar === */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }

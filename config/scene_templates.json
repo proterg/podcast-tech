@@ -37,6 +37,42 @@
         {"source": "Cam 1", "x": 0, "y": 0, "width": 1920, "height": 1080},
         {"source": "Cam 2", "x": 1400, "y": 20, "width": 500, "height": 281}
       ]
+    },
+    "split_host_callin1": {
+      "label": "Split: Host + Call-In 1",
+      "layout": [
+        {"source": "Cam 1", "x": 0, "y": 0, "width": 960, "height": 1080},
+        {"source": "Call-In 1", "x": 960, "y": 0, "width": 960, "height": 1080}
+      ]
+    },
+    "split_host_callin2": {
+      "label": "Split: Host + Call-In 2",
+      "layout": [
+        {"source": "Cam 1", "x": 0, "y": 0, "width": 960, "height": 1080},
+        {"source": "Call-In 2", "x": 960, "y": 0, "width": 960, "height": 1080}
+      ]
+    },
+    "split_callin_both": {
+      "label": "Split: Call-In 1 + 2",
+      "layout": [
+        {"source": "Call-In 1", "x": 0, "y": 0, "width": 960, "height": 1080},
+        {"source": "Call-In 2", "x": 960, "y": 0, "width": 960, "height": 1080}
+      ]
+    },
+    "gallery_with_callins": {
+      "label": "Gallery: Host + 2 Call-Ins",
+      "layout": [
+        {"source": "Cam 1", "x": 0, "y": 0, "width": 960, "height": 1080},
+        {"source": "Call-In 1", "x": 960, "y": 0, "width": 960, "height": 540},
+        {"source": "Call-In 2", "x": 960, "y": 540, "width": 960, "height": 540}
+      ]
+    },
+    "pip_callin": {
+      "label": "PiP: Host + Call-In 1 small",
+      "layout": [
+        {"source": "Cam 1", "x": 0, "y": 0, "width": 1920, "height": 1080},
+        {"source": "Call-In 1", "x": 1400, "y": 20, "width": 500, "height": 281}
+      ]
     }
   },
   "lower_third": {

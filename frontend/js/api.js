@@ -53,6 +53,13 @@ const API = {
     getVoiceStatus: ()     => API.get('/api/voice'),
     toggleVoice: (enabled) => API.post('/api/voice/toggle', { enabled }),
 
+    // Call-In
+    getCallInSlots: ()     => API.get('/api/callin'),
+    createCallInInvite: (slotId, guestName) => API.post('/api/callin/invite', { slot_id: slotId, guest_name: guestName }),
+    activateCallIn: (slotId) => API.post('/api/callin/activate', { slot_id: slotId }),
+    deactivateCallIn: (slotId) => API.post('/api/callin/deactivate', { slot_id: slotId }),
+    clearCallIn: (slotId)  => API.post('/api/callin/clear', { slot_id: slotId }),
+
     // Status
     getStatus: ()          => API.get('/api/status'),
 };

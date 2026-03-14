@@ -13,7 +13,7 @@ from app.audio.auto_switcher import auto_switcher
 from app.voice.recognizer import vosk_recognizer
 from app.voice.command_parser import command_parser
 from app.voice.command_registry import command_registry
-from app.api import scenes, switching, assets, voice, status, websocket
+from app.api import scenes, switching, assets, voice, status, websocket, callin
 
 logging.basicConfig(
     level=logging.INFO,
@@ -95,6 +95,7 @@ app.include_router(assets.router)
 app.include_router(voice.router)
 app.include_router(status.router)
 app.include_router(websocket.router)
+app.include_router(callin.router)
 
 # Serve frontend
 frontend_dir = BASE_DIR / "frontend"

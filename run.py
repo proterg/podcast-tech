@@ -13,10 +13,8 @@ from app.config import config
 
 def main():
     print()
-    print("  ╔══════════════════════════════════════╗")
-    print("  ║   UNCAPPED Production Control        ║")
-    print("  ║   Starting server...                 ║")
-    print("  ╚══════════════════════════════════════╝")
+    print("  UNCAPPED Production Control")
+    print("  Starting server...")
     print()
 
     uvicorn.run(

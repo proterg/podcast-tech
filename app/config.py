@@ -17,7 +17,7 @@ class OBSConfig(BaseModel):
 
 
 class AudioConfig(BaseModel):
-    device_name: str = "Scarlett 18i20 USB"
+    device_name: str = "Focusrite USB Audio"
     sample_rate: int = 48000
     block_size: int = 1024
     num_channels: int = 8
